@@ -82,6 +82,17 @@ class ViewController: UIViewController {
         // create the alert
         let alert = UIAlertController(title: "Text field alert", message: "This is an alert with text field", preferredStyle: .alert)
         
+        // add text fields to the alert and set their placeholder text
+        alert.addTextField(configurationHandler: { (textField:UITextField) in
+            textField.placeholder = "First name"
+            
+        })
+        alert.addTextField(configurationHandler: { (textField:UITextField) in
+            textField.placeholder = "Second name"
+            
+        })
+        
+
         // create the "actions"
         let addButtonAction = UIAlertAction(title: "Add", style: .default, handler: { (_:UIAlertAction) in
             if let textField = alert.textFields?[0] {
@@ -97,16 +108,6 @@ class ViewController: UIViewController {
         })
         let cancelButtonAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (_:UIAlertAction) in
             self.label.text = "Text field alert cancel button selected"
-        })
-        
-        // add a text field to the alert and set its placeholder text
-        alert.addTextField(configurationHandler: { (textField:UITextField) in
-            textField.placeholder = "First name"
-
-        })
-        alert.addTextField(configurationHandler: { (textField:UITextField) in
-            textField.placeholder = "Second name"
-            
         })
         
         // add the actions to the alert
